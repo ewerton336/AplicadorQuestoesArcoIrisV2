@@ -12,6 +12,6 @@ namespace AplicadorQuestoesArcoIris.Domain
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Questao> Perguntas { get; set; }
         public DbSet<Alternativa> Alternativas { get; set; }
-        public DbSet<Resposta> Respostas { get; set; }
+        public DbSet<RespostaAluno> Respostas { get; set; }
     }
 }

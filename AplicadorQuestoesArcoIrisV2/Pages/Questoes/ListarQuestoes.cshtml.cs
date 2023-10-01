@@ -15,7 +15,7 @@ namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
             _context = context;
         }
 
-        public List<Pergunta> Questoes { get; set; }
+        public List<Questao> Questoes { get; set; }
 
         public void OnGet()
         {

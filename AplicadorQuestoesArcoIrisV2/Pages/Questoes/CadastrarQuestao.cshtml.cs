@@ -10,7 +10,7 @@ namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
         private readonly ApplicationDbContext _context;
 
         [BindProperty]
-        public Pergunta Pergunta { get; set; } = new Pergunta(); // Inicialize Pergunta aqui
+        public Questao Pergunta { get; set; } = new Questao(); // Inicialize Pergunta aqui
 
         public CadastrarquestaoModel(ApplicationDbContext context)
         {
@@ -42,7 +42,7 @@ namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
 
             // Limpe o modelo para permitir a inserção de uma nova pergunta
             ModelState.Clear();
-            Pergunta = new Pergunta();
+            Pergunta = new Questao();
 
             // Redirecione para uma página de sucesso
             return RedirectToPage("/Admin/Sucesso");
