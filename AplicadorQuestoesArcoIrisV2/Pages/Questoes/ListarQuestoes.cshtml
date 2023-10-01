@@ -20,7 +20,10 @@
             <tr>
                 <td>@pergunta.Id</td>
                 <td>@pergunta.Texto</td>
-                <td>@pergunta.RespostaCorretaId</td>
+                <td>@pergunta.TextoRespostaCorreta</td>
+                <td>
+                    <a asp-page="./EditarQuestao" asp-route-id="@pergunta.Id">Editar</a> |
+                    <a asp-page="./ExcluirQuestao" asp-route-id="@pergunta.Id">Excluir</a></td>
             </tr>
         }
     </tbody>

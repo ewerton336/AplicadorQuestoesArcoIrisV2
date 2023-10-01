@@ -1,7 +1,12 @@
-﻿namespace AplicadorQuestoesArcoIris.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace AplicadorQuestoesArcoIris.Domain.Entities
 {
     public class Aluno
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Login { get; set; }

@@ -21,5 +21,20 @@ namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
         {
             Questoes = _context.Perguntas.Include(p => p.Alternativas).ToList();
         }
+
+        public IActionResult ExcluirQuestao(int perguntaId)
+        {
+            var pergunta = _context.Perguntas.Find(perguntaId);
+
+            if (pergunta == null)
+            {
+                return NotFound(); // Retorna um erro 404 se a pergunta não for encontrada
+            }
+
+            _context.Perguntas.Remove(pergunta);
+            _context.SaveChanges();
+
+            return RedirectToPage("/Questoes/ListarQuestoes");
+        }
     }
 }

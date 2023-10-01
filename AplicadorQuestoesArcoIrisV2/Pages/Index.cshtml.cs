@@ -21,7 +21,7 @@ namespace AplicadorQuestoesArcoIrisV2.Pages
             {
                 // Credenciais do administrador
                 // Redirecione para a página de administrador
-                return Redirect("/Admin/Index");
+                return Redirect("/Admin/CadastrarQuestao");
             }
             else if (UserName == "aluno" && Password == "aluno")
             {
