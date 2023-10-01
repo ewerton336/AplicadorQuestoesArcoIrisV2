@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace AplicadorQuestoesArcoIris.Domain.Entities
+namespace AplicadorQuestoesArcoIrisV2.Domain.Entities
 {
     public class Aluno
     {

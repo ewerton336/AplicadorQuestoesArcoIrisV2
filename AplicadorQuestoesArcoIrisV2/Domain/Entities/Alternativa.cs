@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace AplicadorQuestoesArcoIris.Domain.Entities
+namespace AplicadorQuestoesArcoIrisV2.Domain.Entities
 {
     public class Alternativa
     {
@@ -11,6 +11,6 @@ namespace AplicadorQuestoesArcoIris.Domain.Entities
         public string Texto { get; set; }
         public bool Correta { get; set; }
         public int PerguntaId { get; set; }
-        public Questao Pergunta { get; set; }
+        public Questao Questao { get; set; }
     }
 }

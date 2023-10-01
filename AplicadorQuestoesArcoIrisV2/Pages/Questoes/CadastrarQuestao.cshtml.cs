@@ -1,5 +1,6 @@
-using AplicadorQuestoesArcoIris.Domain;
-using AplicadorQuestoesArcoIris.Domain.Entities;
+
+using AplicadorQuestoesArcoIrisV2.Domain;
+using AplicadorQuestoesArcoIrisV2.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -26,7 +27,7 @@ namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
         {
             foreach (var alternativa in Pergunta.Alternativas)
             {
-                alternativa.Pergunta = Pergunta;
+                alternativa.Questao = Pergunta;
                 alternativa.PerguntaId = Pergunta.Id;
             }
             Pergunta.Alternativas[Pergunta.AlternativaCorretaId].Correta = true;

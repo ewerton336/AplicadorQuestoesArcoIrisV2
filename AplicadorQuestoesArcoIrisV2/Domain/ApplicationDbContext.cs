@@ -1,7 +1,7 @@
-﻿using AplicadorQuestoesArcoIris.Domain.Entities;
+﻿using AplicadorQuestoesArcoIrisV2.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace AplicadorQuestoesArcoIris.Domain
+namespace AplicadorQuestoesArcoIrisV2.Domain
 {
     public class ApplicationDbContext : DbContext
     {

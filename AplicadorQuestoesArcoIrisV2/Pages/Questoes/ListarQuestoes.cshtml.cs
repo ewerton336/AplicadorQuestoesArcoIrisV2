@@ -1,5 +1,5 @@
-using AplicadorQuestoesArcoIris.Domain;
-using AplicadorQuestoesArcoIris.Domain.Entities;
+using AplicadorQuestoesArcoIrisV2.Domain;
+using AplicadorQuestoesArcoIrisV2.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
