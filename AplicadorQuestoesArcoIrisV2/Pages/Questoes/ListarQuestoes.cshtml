@@ -22,10 +22,19 @@
                 <td>@pergunta.Texto</td>
                 <td>@pergunta.TextoRespostaCorreta</td>
                 <td>
-                    <a asp-page="./EditarQuestao" asp-route-id="@pergunta.Id">Editar</a> |
-                    <a asp-page="./ExcluirQuestao" asp-route-id="@pergunta.Id">Excluir</a></td>
+                    <form>
+                        <input type="hidden" name="id" value="@pergunta.Id" />
+                        <button type="submit" class="btn btn-primary" formaction="Questoes/Editar">Editar</button>
+                    </form>
+
+                    <form method="post" asp-page-handler="ExcluirQuestao">
+                        <input type="hidden" name="perguntaId" value="@pergunta.Id" />
+                        <button type="submit" class="btn btn-danger" formaction="/Questoes/ListarQuestoes?handler=ExcluirQuestao">Excluir</button>
+                    </form>
+
+
+                </td>
             </tr>
         }
     </tbody>
 </table>
-

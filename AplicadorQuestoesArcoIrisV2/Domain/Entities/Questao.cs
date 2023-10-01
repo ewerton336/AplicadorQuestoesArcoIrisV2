@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AplicadorQuestoesArcoIris.Domain.Entities
 {
-    public class Pergunta
+    public class Questao
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -11,6 +11,6 @@ namespace AplicadorQuestoesArcoIris.Domain.Entities
         public string Texto { get; set; }
         public bool Correta { get; set; }
         public int PerguntaId { get; set; }
-        public Pergunta Pergunta { get; set; }
+        public Questao Pergunta { get; set; }
     }
 }

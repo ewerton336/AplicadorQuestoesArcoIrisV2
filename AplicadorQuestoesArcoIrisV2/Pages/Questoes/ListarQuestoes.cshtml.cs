@@ -22,7 +22,7 @@ namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
             Questoes = _context.Perguntas.Include(p => p.Alternativas).ToList();
         }
 
-        public IActionResult ExcluirQuestao(int perguntaId)
+        public IActionResult OnPostExcluirQuestao(int perguntaId)
         {
             var pergunta = _context.Perguntas.Find(perguntaId);
 
@@ -36,5 +36,7 @@ namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
 
             return RedirectToPage("/Questoes/ListarQuestoes");
         }
+
+
     }
 }

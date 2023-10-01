@@ -3,7 +3,7 @@ using AplicadorQuestoesArcoIris.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace AplicadorQuestoesArcoIrisV2.Pages.Admin
+namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
 {
     public class CadastrarquestaoModel : PageModel
     {
