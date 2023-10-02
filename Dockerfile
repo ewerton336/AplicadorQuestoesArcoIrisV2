@@ -1,10 +1,10 @@
 # Use a imagem oficial da Microsoft para ASP.NET Core runtime
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
 
 # Use a imagem SDK para construir o app
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["AplicadorQuestoesArcoIrisV2/AplicadorQuestoesArcoIrisV2.csproj", "AplicadorQuestoesArcoIrisV2/"]
 RUN dotnet restore "AplicadorQuestoesArcoIrisV2/AplicadorQuestoesArcoIrisV2.csproj"
