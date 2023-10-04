@@ -1,0 +1,51 @@
+﻿@page
+@model AplicadorQuestoesArcoIrisV2.Pages.Questoes.IndexModel
+
+@{
+    ViewData["Title"] = "Questoes";
+}
+
+<h1>Questoes</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Questao[0].Texto)
+            </th>
+            <th>Alternativas</th>
+            <th>Alternativa Correta</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Questao)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Texto)
+                </td>
+                <td>
+                    @foreach (var alternativa in item.Alternativas)
+                    {
+                        <p>@alternativa.Texto</p>
+                    }
+                </td>
+                <td>
+                    @{
+                        var alternativaCorreta = item.Alternativas.FirstOrDefault(a => a.AlternativaCorreta);
+                    }
+                    @(alternativaCorreta != null ? alternativaCorreta.Texto : "Nenhuma selecionada")
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

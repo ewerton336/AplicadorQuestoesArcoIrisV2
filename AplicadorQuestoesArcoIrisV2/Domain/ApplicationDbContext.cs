@@ -10,8 +10,14 @@ namespace AplicadorQuestoesArcoIrisV2.Domain
         }
 
         public DbSet<Aluno> Alunos { get; set; }
-        public DbSet<Questao> Perguntas { get; set; }
+        public DbSet<Questao> Questao { get; set; }
         public DbSet<Alternativa> Alternativas { get; set; }
         public DbSet<RespostaAluno> Respostas { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

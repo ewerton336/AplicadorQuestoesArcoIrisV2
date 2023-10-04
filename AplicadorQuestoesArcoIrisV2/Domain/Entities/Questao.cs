@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace AplicadorQuestoesArcoIrisV2.Domain.Entities
 {
@@ -9,9 +10,12 @@ namespace AplicadorQuestoesArcoIrisV2.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Texto { get; set; }
-        public List<Alternativa> Alternativas { get; set; }
-        public int AlternativaCorretaId { get; set; }
-        public string TextoRespostaCorreta => Alternativas.FirstOrDefault(a => a.Id == AlternativaCorretaId)?.Texto;
+
+        [DisplayName("Alternativas")]
+        public ICollection<Alternativa> Alternativas { get; set; } = new List<Alternativa>();
+
+        [NotMapped]
+        public int AlternativaCorretaPosition { get; set; }
     }
 
 }

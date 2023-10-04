@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
 {
-    public class CadastrarquestaoModel : PageModel
+    public class CadastrarQuestaoModel : PageModel
     {
         private readonly ApplicationDbContext _context;
 
         [BindProperty]
-        public Questao Pergunta { get; set; } = new Questao(); // Inicialize Pergunta aqui
+        public Questao Questao { get; set; } = new Questao(); // Inicialize Pergunta aqui
 
-        public CadastrarquestaoModel(ApplicationDbContext context)
+        public CadastrarQuestaoModel(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -25,28 +25,30 @@ namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
 
         public IActionResult OnPost()
         {
-            foreach (var alternativa in Pergunta.Alternativas)
+            int index = 0;
+            foreach (var alternativa in Questao.Alternativas)
             {
-                alternativa.Questao = Pergunta;
-                alternativa.PerguntaId = Pergunta.Id;
-            }
-            Pergunta.Alternativas[Pergunta.AlternativaCorretaId].Correta = true;
 
-            _context.Alternativas.AddRange(Pergunta.Alternativas);
+                alternativa.Questao = Questao;
+                alternativa.QuestaoId = Questao.Id;
+                alternativa.AlternativaCorreta = index == Questao.AlternativaCorretaPosition;
+                index++;
+            }
+
+
+            _context.Alternativas.AddRange(Questao.Alternativas);
             _context.SaveChanges();
 
-            Pergunta.AlternativaCorretaId = Pergunta.Alternativas[Pergunta.AlternativaCorretaId].Id;
-
             // Adicione a pergunta ao contexto do banco de dados
-            _context.Perguntas.Update(Pergunta);
+            _context.Questao.Update(Questao);
             _context.SaveChanges();
 
             // Limpe o modelo para permitir a inserção de uma nova pergunta
             ModelState.Clear();
-            Pergunta = new Questao();
+            Questao = new Questao();
 
             // Redirecione para uma página de sucesso
-            return RedirectToPage("/Admin/Sucesso");
+            return RedirectToPage("/Questoes/Index");
         }
     }
 }
