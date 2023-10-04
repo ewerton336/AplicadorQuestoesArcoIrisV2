@@ -29,7 +29,7 @@ namespace AplicadorQuestoesArcoIrisV2.Pages.Questoes
                 return NotFound();
             }
 
-            var questao = await _context.Questao.FirstOrDefaultAsync(m => m.Id == id);
+            var questao = await _context.Questao.Include(x=>x.Alternativas).FirstOrDefaultAsync(m => m.Id == id);
 
             if (questao == null)
             {

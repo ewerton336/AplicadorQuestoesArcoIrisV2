@@ -7,7 +7,7 @@
 
 <h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja deletar isso?</h3>
 <div>
     <h4>Questao</h4>
     <hr />
@@ -19,10 +19,32 @@
             @Html.DisplayFor(model => model.Questao.Texto)
         </dd>
     </dl>
-    
+    @*mostrar as alternativas*@
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Questao.Alternativas)
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                int i = 1;
+            }
+            @foreach (var alternativa in Model.Questao.Alternativas)
+            {
+                <p>@i ) @alternativa.Texto</p>
+                i++;
+            }
+        </dd>
+        @*mostrar alternativa correta*@
+        <dt class="col-sm-2">
+            Alternativa correta:
+        <dd class="col-sm-10">
+                @(Model.Questao.Alternativas.FirstOrDefault(a => a.AlternativaCorreta)?.Texto ?? "Nenhuma selecionada")
+        </dd>
+    </dl>
+
     <form method="post">
         <input type="hidden" asp-for="Questao.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a asp-page="./Index">Voltar para o ínício</a>
     </form>
 </div>
