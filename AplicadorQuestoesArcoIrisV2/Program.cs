@@ -12,7 +12,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
-//builder.WebHost.UseUrls($"http://*:{port}");  // Set the listening URL
+builder.WebHost.UseUrls($"http://*:{port}");  // Set the listening URL
 
 var app = builder.Build();
 
