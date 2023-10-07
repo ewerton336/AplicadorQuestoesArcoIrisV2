@@ -1,0 +1,1 @@
+heroku buildpacks:add https://github.com/jincod/dotnetcore-buildpack --app app-questoes-arco-iris
